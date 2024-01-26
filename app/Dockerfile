@@ -1,18 +1,15 @@
-FROM node:19.5.0-alpine as n
+FROM node:16-alpine3.11 as angular
 
-WORKDIR /usr/local/app
+WORKDIR /app
 
-COPY ./ /usr/local/app
-
+COPY . .
 RUN npm i --silent
-
 RUN npm run build
 
-FROM nginx:latest
+FROM httpd:alpine3.15
 
-COPY --from=n /usr/local/app/dist/app /usr/share/nginx/html
+WORKDIR /usr/local/apache2/htdocs
+
+COPY --from=angular /app/dist/app .
 
 EXPOSE 80
-
-CMD [ "npm", "start"]
-
