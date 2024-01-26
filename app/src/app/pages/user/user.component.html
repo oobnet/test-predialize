@@ -1,0 +1,15 @@
+<p>Nome: {{client.name}}</p>
+<p>
+    <img src="{{client.image_src}}" width="240" height="120" alt="">
+</p>
+<hr>
+
+<ul>
+    <li *ngFor="let item of client.enterprises;" style="margin-bottom: 5px; border-bottom: 2px solid #000;">
+        <p>Nome: {{item.name}}</p>
+        <p>Realties:{{item.realties}}</p>
+        <p>
+            <img src="{{item.image_src}}" width="240" height="120" alt="">
+        </p>
+    </li>
+</ul>

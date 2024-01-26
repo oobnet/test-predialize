@@ -1,0 +1,33 @@
+
+<table class="mat-elevation-z8" style="width: 100%;">
+<thead>
+    <tr>
+        <th>ID</th>
+        <th>IMAGEM</th>
+        <th>NOME</th>
+        <th>QNT EMP</th>
+        <th>QNT IMOVEIS</th>
+        <th>AÇÕES</th>
+    </tr>
+</thead>
+
+<tbody>
+    <tr *ngFor="let item of clients; let i = index">
+        <td>{{item._id}}</td>
+        <td>
+            <img src="{{item.image_src}}" width="240" height="120" alt="">
+           
+        </td>
+        <td>{{item.name}}</td>
+        <td>{{item.enterprises.length}}</td>
+        <td>0</td>
+        <td>
+            <!-- <button [ngClick]="myFunc()">OK</button> -->
+            <a [routerLink]="['/user/',item._id]"
+            class="btn btn-info btn-xs "
+            style="border-radius: 0;"> DETALHES
+        </a>
+        </td>
+    </tr>
+</tbody>
+</table>

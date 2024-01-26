@@ -1,0 +1,15 @@
+version: '3'
+services: 
+    appi:
+        build: .
+        image: api
+        command: npm start
+        ports:
+            - 3000:3000
+        environment: 
+            PORT: 3000
+        volumes: 
+            - ./:/src/
+            - nodemodules:/src/node_modules
+volumes: 
+    nodemodules: {}
